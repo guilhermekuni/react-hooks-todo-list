@@ -8,6 +8,10 @@ import { priorityLevels } from '../utils/constants';
 import { TaskContext } from '../screens/Home';
 
 const useStyles = makeStyles(theme => ({
+  paper: {
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
+  },
   container: {
     marginTop: theme.spacing(2),
     display: 'flex',
@@ -28,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(4),
   },
   sendIcon: {
-    scrollMarginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(1),
   },
 }));
 
@@ -66,7 +70,7 @@ export default function TaskForm() {
 
   return (
     <>
-      <Paper>
+      <Paper className={classes.paper}>
         <Box display="flex" justifyContent="center">
           <form className={classes.container} onSubmit={handleSubmit}>
             <TextField

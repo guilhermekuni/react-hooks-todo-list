@@ -9,13 +9,12 @@ export default function TaskList() {
 
   return (
     <>
-      <h2>Task List ({tasks.length})</h2>
       <Paper>
-        <Table>
+        <Table stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell>Task</TableCell>
-              <TableCell>Description</TableCell>
+              <TableCell></TableCell>
+              <TableCell>Title</TableCell>
               <TableCell>Priority</TableCell>
               <TableCell>Actions</TableCell>
             </TableRow>
