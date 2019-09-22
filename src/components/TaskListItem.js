@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { TableCell, TableRow, Checkbox, IconButton } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import { TaskContext } from '../screens/Home';
@@ -17,6 +16,11 @@ export default function TaskListItem(props) {
     setTasks(updatedTasks);
   }
 
+  function handleDelete() {
+    const updatedTasks = tasks.filter(item => item.id !== id);
+    setTasks(updatedTasks);
+  }
+
   return (
     <>
       <TableRow hover>
@@ -28,10 +32,7 @@ export default function TaskListItem(props) {
         <TableCell>{priorityLevels[level]}</TableCell>
         <TableCell>
           <IconButton>
-            <EditIcon />
-          </IconButton>
-          <IconButton>
-            <DeleteIcon />
+            <DeleteIcon onClick={handleDelete} />
           </IconButton>
         </TableCell>
       </TableRow>

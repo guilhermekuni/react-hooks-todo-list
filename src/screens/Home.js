@@ -16,8 +16,11 @@ export default function Home() {
   const [tasks, setTasks] = useState(mockTasks);
   useEffect(() => {
     const uncompletedTasks = tasks.filter(item => !item.done);
-    document.title = `You still got ${uncompletedTasks.length} tasks `;
-  }, tasks);
+
+    document.title = uncompletedTasks.length > 0  
+      ? `You still got ${uncompletedTasks.length} tasks ` 
+      : "You don't have more tasks";
+  }, [tasks]);
 
   return (
     <>
