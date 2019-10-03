@@ -24,9 +24,13 @@ export default function TaskList() {
               tasks.length > 0 ? (
                 tasks.map((item, index) => <TaskListItem key={index} task={item}></TaskListItem>))
                 : (
-                  <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
-                    <Typography>You don't have more tasks</Typography>
-                  </Grid>
+                  <TableRow>
+                    <TableCell>
+                      <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
+                        <Typography>You don't have more tasks</Typography>
+                      </Grid>
+                    </TableCell>
+                  </TableRow>
                 )
             }
           </TableBody>
