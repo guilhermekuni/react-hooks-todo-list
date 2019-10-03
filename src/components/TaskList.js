@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Table, TableBody, TableRow, TableCell, TableHead, Paper } from '@material-ui/core/';
+import { Table, TableBody, TableRow, TableCell, TableHead, Paper, Typography, Grid } from '@material-ui/core/';
 
 import { TaskContext } from '../screens/Home';
 import TaskListItem from '../components/TaskListItem';
@@ -21,7 +21,17 @@ export default function TaskList() {
           </TableHead>
           <TableBody>
             {
-              tasks.map((item, index) => <TaskListItem key={index} task={item}></TaskListItem>)
+              tasks.length > 0 ? (
+                tasks.map((item, index) => <TaskListItem key={index} task={item}></TaskListItem>))
+                : (
+                  <>
+                    <br />
+                    <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
+                      <Typography>You don't have more tasks</Typography>
+                    </Grid>
+                    <br />
+                  </>
+                )
             }
           </TableBody>
         </Table>
