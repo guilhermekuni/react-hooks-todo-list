@@ -65,7 +65,11 @@ export default function TaskForm() {
       level: taskPriority.value,
     }
 
-    setTasks([...tasks, newTask]);
+    const newTaskArray = [...tasks, newTask];
+    
+    localStorage.setItem('storageTaskList', JSON.stringify(newTaskArray));
+
+    setTasks(newTaskArray);
   }
 
   return (

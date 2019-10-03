@@ -19,6 +19,9 @@ export default function TaskListItem(props) {
 
   function handleDelete() {
     const updatedTasks = tasks.filter(item => item.id !== id);
+
+    localStorage.setItem('storageTaskList', JSON.stringify(updatedTasks));
+
     setTasks(updatedTasks);
   }
 

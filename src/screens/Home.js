@@ -10,10 +10,18 @@ export default function Home() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
+    const storageTaskList = JSON.parse(localStorage.getItem('storageTaskList'));
+    
+    if (storageTaskList && storageTaskList.length > 0) {
+      setTasks(storageTaskList);
+    }
+  }, []);
+
+  useEffect(() => {
     const uncompletedTasks = tasks.filter(item => !item.done);
 
-    document.title = uncompletedTasks.length > 0  
-      ? `You still got ${uncompletedTasks.length} tasks` 
+    document.title = uncompletedTasks.length > 0
+      ? `You still got ${uncompletedTasks.length} tasks`
       : "You don't have more tasks";
   }, [tasks]);
 
