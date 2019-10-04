@@ -14,14 +14,13 @@ export default function TaskListItem(props) {
 
   function handleCheck() {
     const updatedTasks = tasks.map(item => item.id === id ? { ...item, done: !item.done } : item);
+    localStorage.setItem('storageTaskList', JSON.stringify(updatedTasks));
     setTasks(updatedTasks);
   }
 
   function handleDelete() {
     const updatedTasks = tasks.filter(item => item.id !== id);
-
     localStorage.setItem('storageTaskList', JSON.stringify(updatedTasks));
-
     setTasks(updatedTasks);
   }
 
